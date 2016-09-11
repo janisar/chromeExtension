@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "BoardWatch Alert",
+  "description": "This extension will analyze a page using BoardWach",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+  "permissions": [
+      "activeTab",
+      "tabs",
+      "https://www.gstatic.com/charts/*"
+   ],
+  "content_scripts": [{
+      "js": ["jquery-3.1.0.min.js","Util.js", "model.js", "dao.js", "execute.js"],
+      "matches": [ "http://*/*", "https://*/*" ]
+  }],
+  "background": {
+    "scripts": ["jquery-3.1.0.min.js","Util.js", "background.js"],
+    "persistent": false
+  }
+}
+
